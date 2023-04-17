@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     MatCardModule,
     NgModule,
-    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
