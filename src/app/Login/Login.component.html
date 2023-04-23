@@ -1,27 +1,27 @@
-<!-- <div class="card">
-  <h4 class="card-header">Sign in to ypur dashboard</h4>
-  <div class="card-body">
-      <form>
-          <div class="mb-3">
-              <label class="form-label">Username</label>
-              <input type="text" formControlName="username" class="form-control"  />
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Password</label>
-              <input type="password" formControlName="password" class="form-control"  />
-          </div>
-          <div>
-              <button class="btn btn-primary">
-                  SIGN IN
-              </button>
-
-          </div>
-      </form>
-  </div>
-</div> -->
-
-<div class="card-size" fxLayout="column" fxLayoutAlign="center" >
+<div class="card-size" fxLayout="column" fxLayoutAlign="center">
   <mat-card class="card-container">
-    <mat-card-content>Simple card</mat-card-content>
+    <span class="color">
+      <h2>Sign in to your dashboard</h2><br>
+    </span>
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="registerForm">
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" type="text" formControlName="username"/>
+      </mat-form-field>
+      <div class="help-block" *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty)">
+        Please Enter a valid email address
+      </div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Password</mat-label>
+        <input matInput  name="password" placeholder="Password" type="password"  formControlName="password"/>
+      </mat-form-field>
+      <div *ngIf="f['password'].errors && f['password'].errors['minlength']">
+        Password should be atleast 6 character.
+      </div><br>
+      <div fxLayout="row" fxLayoutAlign="center" class="button">
+        <button mat-raised-button fxLayoutAlign="start" class="submit-button" (click)="onSubmit()">SIGN IN</button>
+      </div>
+    </form>
   </mat-card>
 </div>
+your

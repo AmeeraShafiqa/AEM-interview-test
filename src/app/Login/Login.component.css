@@ -1,8 +1,30 @@
 .card-container {
   width: 30%;
   margin: auto;
+  justify-content: center;
+  text-align: center;
+  color: black;
 }
 
 .card-size {
   min-height: 100vh;
+}
+
+.input{
+  width: 100%;
+}
+
+.submit-button {
+  background: #1976D2;
+  color: white;
+  /* margin-right: 0%;
+   */
+}
+
+.button {
+  margin-right: 0%;
+}
+
+.color {
+background:#818181 ;
 }
