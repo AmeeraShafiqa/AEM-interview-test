@@ -17,12 +17,16 @@
 .submit-button {
   background: #1976D2;
   color: white;
-  /* margin-right: 0%;
-   */
+
 }
 
 .button {
-  margin-right: 0%;
+  flex-direction: row;
+  /* place-content: stretch center; */
+  /* align-items: stretch; */
+  /* box-sizing: border-box; */
+  display: flex;
+
 }
 
 .color {

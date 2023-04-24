@@ -7,10 +7,7 @@
   margin-left: 80%;
 
 }
-.mainborder{
-  background-color:black ;
-  color: grey;
-}
+
 
 table {
   width: 100%;
@@ -26,17 +23,19 @@ table {
   height: 250px !important;
 }
 
-.mat-card:not([class*=mat-elevation-z]) {
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 1),
-    0 1px 1px 0 rgba(0, 0, 0, 1),
-    0 1px 3px 0 rgba(0, 0, 0, 1);
+.mainborder{
+  background-color: black;
+  color: grey;
 }
 
 .mat-cardd {
   width: 85%;
-  height: 99%;
+  margin: auto;
+  color: black;
 }
-
+.font{
+  font-size: 40;
+}
 .center {
   display: flex;
   justify-content: center;
@@ -44,4 +43,12 @@ table {
 
 #divChart {
   display: block;
+  font-size: 12;
+
 }
+.doughnutChart{
+  background-color: lightyellow;
+  height: 40%;
+  border: 5px black;
+}
+

@@ -1,9 +1,9 @@
-<div class="card-size" fxLayout="column" fxLayoutAlign="center">
+<div class="card-size" fxLayout="column" >
   <mat-card class="card-container">
     <span class="color">
       <h2>Sign in to your dashboard</h2><br>
     </span>
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="registerForm">
+    <form fxLayout="column"  [formGroup]="registerForm">
       <mat-form-field appearance="outline" class="input">
         <mat-label>Username</mat-label>
         <input matInput placeholder="Username" type="text" formControlName="username"/>
@@ -18,7 +18,8 @@
       <div *ngIf="f['password'].errors && f['password'].errors['minlength']">
         Password should be atleast 6 character.
       </div><br>
-      <div fxLayout="row" fxLayoutAlign="center" class="button">
+
+      <div class="button">
         <button mat-raised-button fxLayoutAlign="start" class="submit-button" (click)="onSubmit()">SIGN IN</button>
       </div>
     </form>

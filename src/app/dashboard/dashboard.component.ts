@@ -27,18 +27,48 @@ export class DashboardComponent implements OnInit {
   getBarvalue: any[] = [];
   getDonutName: any[] = [];
   getDonutValue: any[] = [];
-  getTable : table[] =[]
+  getTable: table[] = []
   displayedColumns: string[] = ['position', 'fname', 'lname', 'ffname'];
-  dataSource : any
+  dataSource: any
 
   constructor(
     private DashboardApi: DashboardApi,
     private AuthService: AuthService
-  ) {}
+  ) { }
   ngOnInit() {
     this.dashboard.subscribe((res) => {
       this.getData = res;
-      console.log(res,'res');
+      console.log(res, 'res');
+
+
+      //donut
+      this.getData.chartDonut.forEach((x: chart) => {
+        this.getDonutName.push(x.name);
+        this.getDonutValue.push(x.value);
+      });
+
+      var myChart1 = new Chart('myChart1', {
+        type: 'doughnut',
+        data: {
+          // labels: this.getDonutName,
+          datasets: [
+            {
+              data: this.getDonutValue,
+              backgroundColor: ["#CACFD2", "#626567", "#909497", "#A6ACAF"],
+              borderColor: ["#CACFD2", "#626567", "#909497", "#A6ACAF"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
 
       //bar
       this.getData.chartBar.forEach((x: chart) => {
@@ -52,66 +82,35 @@ export class DashboardComponent implements OnInit {
           datasets: [
             {
               data: this.getBarvalue,
-              backgroundColor: [ "#909497" ],
-              borderColor: [ "#909497" ],
+              backgroundColor: ["#909497"],
+              borderColor: ["#909497"],
               borderWidth: 1,
             },
           ],
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
           plugins: {
             legend: {
               display: false,
             },
           },
-        },
-      });
-
-      //donut
-      this.getData.chartDonut.forEach((x: chart) => {
-        this.getDonutName.push(x.name);
-        this.getDonutValue.push(x.value);
-      });
-
-      var myChart1 = new Chart('myChart1', {
-        type: 'doughnut',
-        data: {
-          labels: this.getDonutName,
-          datasets: [
-            {
-              data: this.getDonutValue,
-              backgroundColor:  ["#CACFD2", "#626567","#909497","#A6ACAF"],
-              borderColor:  ["#CACFD2", "#626567","#909497","#A6ACAF"],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
           scales: {
             y: {
-              beginAtZero: true,
+              display: false // Hide Y axis labels
             },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-        },
-      });
+            x: {
+              display: false // Hide X axis labels
+            }
+          }
+        }
+      })
 
       //table
       this.getData.tableUsers.forEach((x: table) => {
-        let data = {firstName: x.firstName , lastName: x.lastName, username: x.username }
+        let data = { firstName: x.firstName, lastName: x.lastName, username: x.username }
         this.getTable.push(data)
       });
       this.dataSource = this.getTable
-
     });
   }
 
